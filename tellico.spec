@@ -11,11 +11,12 @@ Patch0:		%{name}-gcc34.patch
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	unsermake >= 040805-1
 BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	libxml2-devel
 BuildRequires:	qt-devel > 3.1
+BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	unsermake >= 040805-1
 Requires:	kdebase-core >= 3.1
 Requires:	libxslt >= 1.0.19
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -46,6 +47,7 @@ export UNSERMAKE=/usr/share/unsermake/unsermake
 %install
 rm -rf $RPM_BUILD_ROOT *.lang
 install -d $RPM_BUILD_ROOT%{_desktopdir}
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
