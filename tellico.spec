@@ -14,7 +14,9 @@ BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	libxml2-devel
+BuildRequires:	libxml2-progs
 BuildRequires:	qt-devel > 3.1
+BuildRequires:	pcre-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	unsermake >= 040805-1
 Requires:	kdebase-core >= 3.1
