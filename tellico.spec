@@ -1,13 +1,15 @@
-Summary:	A book collection manager
-Summary(pl):	Zarz±dca ksiêgozbiorów
+Summary:	A collection manager
+Summary(pl):	Zarz±dca zbiorów wideo, audio i ksi±¿ek
 Name:		bookcase
-Version:	0.8.3
+Version:	0.8.4
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
-# Source0-md5:	0fbae2e650baf72b283c774aee027b78
+# Source0-md5:	301d1c7c046dd02300bbd98bd6b724b0
 URL:		http://www.periapsis.org/bookcase/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	qt-devel > 3.1
@@ -18,11 +20,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define         _htmldir        /usr/share/doc/kde/HTML
 
 %description
-Bookcase is a personal catalog application for your book collection.
+Bookcase is a personal catalog application for your book, video and
+audio collection.
 
 %description -l pl
 Bookcase to osobista aplikacja katalogowa przeznaczona do
-ksiêgozbiorów.
+ksiêgozbiorów, archiwów wideo i audio.
 
 %prep
 %setup -q
@@ -31,6 +34,10 @@ ksiêgozbiorów.
 kde_appsdir="%{_desktopdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure --enable-final
 %{__make}
 
