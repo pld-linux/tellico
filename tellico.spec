@@ -31,7 +31,7 @@ rm -rf $RPM_BUILD_ROOT
 %setup -q
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_appsdir="%{_desktopdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure --enable-final
@@ -44,7 +44,8 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv $RPM_BUILD_ROOT%{_applnkdir}/Applications/bookcase.desktop $RPM_BUILD_ROOT%{_applnkdir}/Scientific
+mv $RPM_BUILD_ROOT%{_desktopdir}/{Applications/,}bookcase.desktop
+echo "Categories=Qt;KDE;Education;Science" >> $RPM_BUILD_ROOT%{_desktopdir}/bookcase.desktop
 
 %find_lang %{name}  --with-kde
 
@@ -60,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*/*/*/bookcase.png
 %{_datadir}/apps/%{name}
 
-%{_applnkdir}/Scientific/bookcase.desktop
+%{_desktopdir}/bookcase.desktop
