@@ -7,6 +7,7 @@ License:	GPL v2
 Group:		X11/Applications
 #Source0Download:	http://www.periapsis.org/bookcase/
 Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
+# Source0-md5:	e0d1dc5b5cbc7b96d210d89642460582
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	kdelibs-devel  >= 3.0
 BuildRequires:	libxslt-devel >= 1.0.19
