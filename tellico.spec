@@ -11,7 +11,7 @@ Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	kdelibs-devel  >= 3.0
 BuildRequires:	libxslt-devel >= 1.0.19
-BuildRequires:	qt-devel > 3.0 
+BuildRequires:	qt-devel > 3.0
 Requires:	kdebase >= 3.0
 Requires:	libxslt >= 1.0.19
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
