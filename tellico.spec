@@ -26,8 +26,6 @@ Bookcase to osobista aplikacja katalogowa przeznaczona do
 ksiêgozbiorów.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
 %setup -q
 
 %build
@@ -45,7 +43,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_desktopdir}/{Applications/,}bookcase.desktop
-echo "Categories=Qt;KDE;Education;Science" >> $RPM_BUILD_ROOT%{_desktopdir}/bookcase.desktop
+echo "Categories=Qt;KDE;Education;Science;" >> $RPM_BUILD_ROOT%{_desktopdir}/bookcase.desktop
 
 %find_lang %{name}  --with-kde
 
