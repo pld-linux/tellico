@@ -7,16 +7,15 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
 # Source0-md5:	1398aca4ac64ebe325a5726dc41e0039
-#Patch0:		bookcase-gcc34.patch
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.2
-BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
-BuildRequires:	qt-devel > 3.1
+BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	pcre-devel
+BuildRequires:	qt-devel > 3.1
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	kdebase-core >= 3.1
 Requires:	libxslt >= 1.0.19
@@ -33,7 +32,6 @@ ksiêgozbiorów, archiwów wideo i audio.
 
 %prep
 %setup -q
-#%%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
