@@ -1,18 +1,18 @@
 Summary:	A book collection manager
 Summary(pl):	Zarz±dca ksiêgozbiorów
 Name:		bookcase
-Version:	0.6.2
+Version:	0.6.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 #Source0Download:	http://www.periapsis.org/bookcase/
 Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e0d1dc5b5cbc7b96d210d89642460582
+# Source0-md5:	61a699f086c0bade78027e3a25538d9e
 URL:		http://www.periapsis.org/bookcase/
-BuildRequires:	kdelibs-devel  >= 3.0
+BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	libxslt-devel >= 1.0.19
-BuildRequires:	qt-devel > 3.0
-Requires:	kdebase >= 3.0
+BuildRequires:	qt-devel > 3.1
+Requires:	kdebase-core >= 3.1
 Requires:	libxslt >= 1.0.19
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
