@@ -3,9 +3,10 @@ Summary(pl):	Zarz±dca ksiêgozbiorów
 Name:		bookcase
 Version:	0.5.1
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		X11/Applications
-Source0:	%{name}-%{version}.tar.gz
+#Source0Download:	http://www.periapsis.org/bookcase/
+Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	kdelibs-devel  >= 3.0
 BuildRequires:	libxslt-devel >= 1.0.19
@@ -48,9 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f bookcase.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog INSTALL README TODO
+%doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-#%{_mandir}/man1/*
 #%{_datadir}/applnk/Applications/bookcase.desktop
 %{_datadir}/mimelnk/application/x-bookcase.desktop
 %{_pixmapsdir}/*/*/*/bookcase.png
