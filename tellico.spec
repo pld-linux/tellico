@@ -1,7 +1,7 @@
 Summary:	A book collection manager
 Summary(pl):	Zarz±dca ksiêgozbiorów
 Name:		bookcase
-Version:	0.5.1
+Version:	0.5.2a
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
@@ -42,7 +42,10 @@ install -d $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang bookcase --with-kde
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
+mv $RPM_BUILD_ROOT%{_applnkdir}/Applications/bookcase.desktop $RPM_BUILD_ROOT%{_applnkdir}/Scientific
+
+%find_lang %{name}  --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*/*/*/bookcase.png
 %{_datadir}/apps/%{name}
 
-%{_applnkdir}/Applications/bookcase.desktop
+%{_applnkdir}/Scientific/bookcase.desktop
