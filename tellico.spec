@@ -12,7 +12,6 @@ URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.2
-BuildRequires:	libgcrypt-devel
 BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
