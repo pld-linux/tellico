@@ -1,23 +1,24 @@
 Summary:	A collection manager
 Summary(pl):	Zarz±dca zbiorów wideo, audio i ksi±¿ek
 Name:		bookcase
-Version:	0.8.4
+Version:	0.9.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
-# Source0-md5:	301d1c7c046dd02300bbd98bd6b724b0
+# Source0-md5:	ccb7035054fbbba18f47c24929881205
+Patch0:		%{name}-gcc34.patch
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	unsermake >= 040805-1
 BuildRequires:	kdelibs-devel >= 3.1
 BuildRequires:	libxslt-devel >= 1.0.19
+BuildRequires:	libxml2-devel
 BuildRequires:	qt-devel > 3.1
 Requires:	kdebase-core >= 3.1
 Requires:	libxslt >= 1.0.19
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _htmldir        /usr/share/doc/kde/HTML
 
 %description
 Bookcase is a personal catalog application for your book, video and
@@ -29,29 +30,29 @@ ksiêgozbiorów, archiwów wideo i audio.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-kde_appsdir="%{_desktopdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure --enable-final
+cp -f /usr/share/automake/config.sub admin
+export UNSERMAKE=/usr/share/unsermake/unsermake
+%{__make} -f admin/Makefile.common cvs
+
+%configure \
+	--enable-final \
+	--with-qt-libraries=%{_libdir}
+
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
-
+rm -rf $RPM_BUILD_ROOT *.lang
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_desktopdir}/{Applications/,}bookcase.desktop
-echo "Categories=Qt;KDE;Education;Science;" >> $RPM_BUILD_ROOT%{_desktopdir}/bookcase.desktop
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
 
 %find_lang %{name}  --with-kde
+mv -f $RPM_BUILD_ROOT{%{_datadir}/applnk/*/*.desktop,%{_desktopdir}}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,6 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/mimelnk/application/x-bookcase.desktop
-%{_pixmapsdir}/*/*/*/bookcase.png
+%{_iconsdir}/*/*/*/bookcase.png
 %{_datadir}/apps/%{name}
 %{_desktopdir}/bookcase.desktop
