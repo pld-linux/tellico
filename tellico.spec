@@ -1,7 +1,7 @@
 Summary:	A book collection manager
 Summary(pl):	Zarz±dca ksiêgozbiorów
 Name:		bookcase
-Version:	0.5.2a
+Version:	0.6.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
