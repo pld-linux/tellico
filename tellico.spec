@@ -1,17 +1,17 @@
 Summary:	A collection manager
 Summary(pl):	Zarz±dca zbiorów wideo, audio i ksi±¿ek
-Name:		bookcase
-Version:	0.9.3
-Release:	1
+Name:		tellico
+Version:	0.13.1
+Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ccb7035054fbbba18f47c24929881205
-Patch0:		%{name}-gcc34.patch
+# Source0-md5:	1398aca4ac64ebe325a5726dc41e0039
+#Patch0:		bookcase-gcc34.patch
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	kdelibs-devel >= 3.1
+BuildRequires:	kdelibs-devel >= 3.2
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	libxml2-devel
@@ -19,9 +19,9 @@ BuildRequires:	libxml2-progs
 BuildRequires:	qt-devel > 3.1
 BuildRequires:	pcre-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
-BuildRequires:	unsermake >= 040805-1
 Requires:	kdebase-core >= 3.1
 Requires:	libxslt >= 1.0.19
+Obsoletes:	bookcase
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,12 +34,10 @@ ksiêgozbiorów, archiwów wideo i audio.
 
 %prep
 %setup -q
-%patch0 -p1
+#%%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
-export UNSERMAKE=/usr/share/unsermake/unsermake
-%{__make} -f admin/Makefile.common cvs
 
 %configure \
 	--enable-final \
@@ -62,11 +60,12 @@ mv -f $RPM_BUILD_ROOT{%{_datadir}/applnk/*/*.desktop,%{_desktopdir}}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f bookcase.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/mimelnk/application/x-bookcase.desktop
-%{_iconsdir}/*/*/*/bookcase.png
+%{_datadir}/mimelnk/application/x-%{name}.desktop
+%{_datadir}/apps/kconf_update/%{name}-rename.upd
+%{_iconsdir}/*/*/*/%{name}.png
 %{_datadir}/apps/%{name}
-%{_desktopdir}/bookcase.desktop
+%{_desktopdir}/%{name}.desktop
