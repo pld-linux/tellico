@@ -1,12 +1,12 @@
 Summary:	A collection manager
 Summary(pl):	Zarz±dca zbiorów wideo, audio i ksi±¿ek
 Name:		tellico
-Version:	1.0
+Version:	1.0.2
 Release:	0.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.periapsis.org/bookcase/download/%{name}-%{version}.tar.gz
-# Source0-md5:	40510766a67c90064d74e452092983d8
+Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
+# Source0-md5:	a7d634de69fcf51c342eab832c009ce0
 URL:		http://www.periapsis.org/bookcase/
 BuildRequires:	autoconf
 BuildRequires:	automake
