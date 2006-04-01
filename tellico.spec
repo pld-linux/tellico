@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
 # Source0-md5:	0be8413b0e425cafb8658140d0e92ac8
-URL:		http://www.periapsis.org/bookcase/
+URL:		http://www.periapsis.org/tellico/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 3.2
@@ -37,7 +37,6 @@ ksiêgozbiorów, archiwów wideo i audio.
 
 %build
 cp -f /usr/share/automake/config.sub admin
-
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
