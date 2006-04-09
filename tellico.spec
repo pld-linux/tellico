@@ -10,7 +10,7 @@ Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
 URL:		http://www.periapsis.org/tellico/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	kdelibs-devel >= 3.2
+BuildRequires:	kdelibs-devel >= 9:3.2
 BuildRequires:	kdemultimedia-devel
 BuildRequires:	kdepim-devel
 BuildRequires:	libxml2-devel
@@ -19,7 +19,7 @@ BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	taglib-devel
 BuildRequires:	yaz-devel
-Requires:	kdebase-core >= 3.2
+Requires:	kdebase-core >= 9:3.2
 Requires:	libxslt >= 1.0.19
 Obsoletes:	bookcase
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
