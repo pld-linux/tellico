@@ -13,6 +13,7 @@ BuildRequires:	automake
 BuildRequires:	kdelibs-devel >= 9:3.3.1
 BuildRequires:	kdemultimedia-devel
 BuildRequires:	kdepim-devel
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
