@@ -1,5 +1,5 @@
 Summary:	A collection manager
-Summary(pl.UTF-8):   Zarządca zbiorów wideo, audio i książek
+Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
 Version:	1.2.8
 Release:	1
