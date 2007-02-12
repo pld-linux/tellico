@@ -1,5 +1,5 @@
 Summary:	A collection manager
-Summary(pl):	Zarz±dca zbiorów wideo, audio i ksi±¿ek
+Summary(pl.UTF-8):   ZarzÄ…dca zbiorÃ³w wideo, audio i ksiÄ…Å¼ek
 Name:		tellico
 Version:	1.2.8
 Release:	1
@@ -30,9 +30,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Bookcase is a personal catalog application for your book, video and
 audio collection.
 
-%description -l pl
+%description -l pl.UTF-8
 Bookcase to osobista aplikacja katalogowa przeznaczona do
-ksiêgozbiorów, archiwów wideo i audio.
+ksiÄ™gozbiorÃ³w, archiwÃ³w wideo i audio.
 
 %prep
 %setup -q
