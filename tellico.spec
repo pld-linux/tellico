@@ -1,12 +1,12 @@
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	1.2.11
+Version:	1.2.12
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
-# Source0-md5:	7096a02dad2317a1013626cf8226580a
+# Source0-md5:	aa2437cddb86fc6f6ffaf2957052d496
 URL:		http://www.periapsis.org/tellico/
 BuildRequires:	autoconf
 BuildRequires:	automake
