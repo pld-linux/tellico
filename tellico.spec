@@ -1,12 +1,12 @@
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	1.2.12
+Version:	1.2.13
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
-# Source0-md5:	aa2437cddb86fc6f6ffaf2957052d496
+# Source0-md5:	7c0371d1e2b8e97d62fafb3fd5d79e7e
 URL:		http://www.periapsis.org/tellico/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -27,11 +27,11 @@ Obsoletes:	bookcase
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Bookcase is a personal catalog application for your book, video and
+Tellico is a personal catalog application for your book, video and
 audio collection.
 
 %description -l pl.UTF-8
-Bookcase to osobista aplikacja katalogowa przeznaczona do
+Tellico to osobista aplikacja katalogowa przeznaczona do
 księgozbiorów, archiwów wideo i audio.
 
 %prep
