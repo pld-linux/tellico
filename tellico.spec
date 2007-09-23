@@ -1,12 +1,12 @@
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	1.2.13
+Version:	1.2.14
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
-# Source0-md5:	7c0371d1e2b8e97d62fafb3fd5d79e7e
+# Source0-md5:	38047e27d482757fae977fa49809a784
 URL:		http://www.periapsis.org/tellico/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -81,6 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/kconf_update/%{name}-rename.upd
 %{_datadir}/apps/kconf_update/tellico.upd
 %{_datadir}/apps/%{name}
+%{_datadir}/config/tellicorc
 %{_datadir}/config.kcfg/tellico_config.kcfg
 %{_desktopdir}/kde/%{name}.desktop
 %{_iconsdir}/*/*/*/%{name}.png
