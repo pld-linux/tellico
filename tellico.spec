@@ -6,12 +6,13 @@ Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
 Version:	1.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
 # Source0-md5:	e14286bc16a639a4e956edee4f1a9100
 Patch0:		%{name}-u64.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://www.periapsis.org/tellico/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -42,8 +43,9 @@ Tellico to osobista aplikacja katalogowa przeznaczona do
 księgozbiorów, archiwów wideo i audio.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
