@@ -1,0 +1,9 @@
+--- tellico-1.3/x-tellico.desktop~	2008-01-30 07:03:59.000000000 +0200
++++ tellico-1.3/x-tellico.desktop	2008-02-25 00:53:47.291474232 +0200
+@@ -7,5 +7,5 @@
+ Icon=application-x-tellico
+ MimeType=application/x-tellico
+ Patterns=*.bc;*.tc;
+-Type=MimeType;
++Type=MimeType
+ X-KDE-AutoEmbed=false
