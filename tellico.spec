@@ -56,7 +56,6 @@ cp -f /usr/share/automake/config.sub admin
 %{__automake}
 %{__perl} admin/am_edit
 %configure \
-	--enable-final \
 	%{?with_webcam:--enable-webcam} \
 	--with-qt-libraries=%{_libdir}
 
