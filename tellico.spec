@@ -6,7 +6,7 @@ Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
 Version:	1.3.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
@@ -29,7 +29,6 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	taglib-devel
 BuildRequires:	yaz-devel
 Requires:	desktop-file-utils
-Requires:	kdebase-core >= 9:3.3.1
 Requires:	libxslt >= 1.0.19
 Obsoletes:	bookcase
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
