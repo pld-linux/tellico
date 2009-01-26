@@ -14,8 +14,6 @@ Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-u64.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.periapsis.org/tellico/
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	exempi-devel
 BuildRequires:	kdelibs-devel >= 9:3.3.1
 BuildRequires:	kdemultimedia-devel
@@ -48,12 +46,6 @@ księgozbiorów, archiwów wideo i audio.
 
 %build
 cp -f /usr/share/automake/config.sub admin
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%{__perl} admin/am_edit
 %configure \
 	%{?with_webcam:--enable-webcam} \
 	--with-qt-libraries=%{_libdir}
