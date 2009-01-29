@@ -14,11 +14,11 @@ Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-u64.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.periapsis.org/tellico/
+BuildRequires:	automake
 BuildRequires:	exempi-devel
 BuildRequires:	kdelibs-devel >= 9:3.3.1
 BuildRequires:	kdemultimedia-devel
 BuildRequires:	kdepim-devel
-BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
