@@ -1,28 +1,50 @@
+# TODO
+# - not found:
+#   poppler-qt4.pc
+#   KSaneConfig.cmake
+#   ksane-config.cmake
+#
+#-----------------------------------------------------------------------------
+#-- The following OPTIONAL packages could NOT be located on your system.
+#-- Consider installing them to enable more features from this software.
+#+ libpoppler: Support for reading PDF files <http://poppler.freedesktop.org/>
+#+ libksane, 4.2.0 or higher: Support for scanning images <http://www.kde.org/>
+
 #
 # Conditional build:
 %bcond_with	webcam	# build with webcam barcode recognition
 #
+%define		svn	950843
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	1.3.5
-Release:	1
+Version:	2.0
+Release:	0.%{svn}.1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ca5d9db11fa1dd33dfe317ffe095435c
+# svn co svn://anonsvn.kde.org/home/kde/trunk/playground/office/tellico
+# tar --exclude=.svn -cjf tellico.tar.bz2 tellico/
+Source0:	%{name}.tar.bz2
+# Source0-md5:	c2ccd790c5c2110d3a1dadf1c858c1b1
 Patch0:		%{name}-u64.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://www.periapsis.org/tellico/
-BuildRequires:	automake
+BuildRequires:	QtTest-devel
+BuildRequires:	automoc4
+BuildRequires:	cmake >= 2.6.1-2
 BuildRequires:	exempi-devel
-BuildRequires:	kdelibs-devel >= 9:3.3.1
-BuildRequires:	kdemultimedia-devel
-BuildRequires:	kdepim-devel
+BuildRequires:	kde4-kdemultimedia-devel
+BuildRequires:	kde4-kdepimlibs-devel
+#BuildRequires:	kdemultimedia-devel
+#BuildRequires:	kdepim-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
+BuildRequires:	phonon-devel
 BuildRequires:	poppler-qt-devel
+BuildRequires:	qimageblitz-devel
+BuildRequires:	qt4-build >= 4.3.3-3
+BuildRequires:	qt4-qmake >= 4.3.3-3
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	taglib-devel
 BuildRequires:	yaz-devel
@@ -40,23 +62,28 @@ Tellico to osobista aplikacja katalogowa przeznaczona do
 księgozbiorów, archiwów wideo i audio.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
+%setup -q -n %{name}
+#%patch0 -p1
+#%patch1 -p1
 
 %build
-cp -f /usr/share/automake/config.sub admin
-%configure \
-	%{?with_webcam:--enable-webcam} \
-	--with-qt-libraries=%{_libdir}
+install -d build
+cd build
+%cmake .. \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
+%if "%{_lib}" == "lib64"
+	-DLIB_SUFFIX=64
+%endif
+
+%{__make}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-
-%{__make} install \
+%{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
