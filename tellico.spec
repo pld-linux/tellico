@@ -75,9 +75,7 @@ cd build
 	-DLIB_SUFFIX=64
 %endif
 
-%{__make}
-
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
