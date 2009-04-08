@@ -13,12 +13,14 @@
 #
 # Conditional build:
 %bcond_with	webcam	# build with webcam barcode recognition
+
+%define		kde_ver		4.2
 #
 %define		svn	950843
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	2.0
+Version:	1.9
 Release:	0.%{svn}.1
 License:	GPL v2
 Group:		X11/Applications
@@ -32,10 +34,10 @@ URL:		http://www.periapsis.org/tellico/
 BuildRequires:	QtSvg-devel
 BuildRequires:	QtTest-devel
 BuildRequires:	automoc4
-BuildRequires:	cmake >= 2.6.1-2
-BuildRequires:	exempi-devel
-BuildRequires:	kde4-kdemultimedia-devel
-BuildRequires:	kde4-kdepimlibs-devel
+BuildRequires:	cmake >= 2.6.2
+BuildRequires:	exempi-devel >= 2.0
+BuildRequires:	kde4-kdemultimedia-devel >= %{kde_ver}
+BuildRequires:	kde4-kdepimlibs-devel >= %{kde_ver}
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
@@ -72,8 +74,9 @@ cd build
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
 %if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64
+	-DLIB_SUFFIX=64 \
 %endif
+	%{?with_webcam:-DENABLE_WEBCAM=ON}
 
 %{__make} -j1
 
