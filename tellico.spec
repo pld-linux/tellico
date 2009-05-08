@@ -1,13 +1,11 @@
 # TODO
 # - mimelnk/x-tellico.desktop is handled how in kde4?
 # - not found:
-#   poppler-qt4.pc
 #   KSaneConfig.cmake
 #   ksane-config.cmake
 #-----------------------------------------------------------------------------
 #-- The following OPTIONAL packages could NOT be located on your system.
 #-- Consider installing them to enable more features from this software.
-#+ libpoppler: Support for reading PDF files <http://poppler.freedesktop.org/>
 #+ libksane, 4.2.0 or higher: Support for scanning images <http://www.kde.org/>
 
 #
@@ -36,13 +34,13 @@ BuildRequires:	QtTest-devel
 BuildRequires:	automoc4
 BuildRequires:	cmake >= 2.6.2
 BuildRequires:	exempi-devel >= 2.0
+BuildRequires:	kde4-kdegraphics-devel >= %{kde_ver}
 BuildRequires:	kde4-kdemultimedia-devel >= %{kde_ver}
 BuildRequires:	kde4-kdepimlibs-devel >= %{kde_ver}
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
-BuildRequires:	phonon-devel
-BuildRequires:	poppler-qt-devel
+BuildRequires:	poppler-Qt-devel
 BuildRequires:	qimageblitz-devel
 BuildRequires:	qt4-build >= 4.3.3-3
 BuildRequires:	qt4-qmake >= 4.3.3-3
