@@ -69,8 +69,8 @@ księgozbiorów, archiwów wideo i audio.
 install -d build
 cd build
 %cmake .. \
+	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DCMAKE_BUILD_TYPE=%{!?debug:release}%{?debug:debug} \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
