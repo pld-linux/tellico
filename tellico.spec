@@ -6,13 +6,14 @@ Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
 Version:	1.3.5
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
 # Source0-md5:	ca5d9db11fa1dd33dfe317ffe095435c
 Patch0:		%{name}-u64.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		gcc44.patch
 URL:		http://www.periapsis.org/tellico/
 BuildRequires:	automake
 BuildRequires:	exempi-devel
@@ -43,6 +44,7 @@ księgozbiorów, archiwów wideo i audio.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 cp -f /usr/share/automake/config.sub admin
