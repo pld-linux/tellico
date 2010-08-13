@@ -5,23 +5,26 @@
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	2.2
+Version:	2.3
 Release:	0.1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	204cc66527f0ba8f8bda48b1f21a3dcd
+# Source0-md5:	54936f0b34f612a428d68d5276d6f478
 Patch1:		%{name}-desktop.patch
 URL:		http://www.periapsis.org/tellico/
-BuildRequires:	exempi-devel
 BuildRequires:	cmake
+BuildRequires:	exempi-devel
+BuildRequires:	kde4-kdegraphics-devel
 BuildRequires:	kde4-kdemultimedia-devel
-BuildRequires:	kde4-kdepim-devel
+BuildRequires:	kde4-kdepimlibs-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
-BuildRequires:	poppler-qt-devel
+BuildRequires:	poppler-Qt-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
+BuildRequires:	shared-desktop-ontologies-devel
+BuildRequires:	soprano-devel
 BuildRequires:	taglib-devel
 BuildRequires:	yaz-devel
 Requires:	desktop-file-utils
