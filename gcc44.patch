@@ -9,3 +9,14 @@
              (memchr(chunk.data() + 4, 0, 32));
          if (null_ptr)
              lv.name = std::string((char *) (chunk.data() + 4),
+--- tellico-1.3.6/src/cite/actionmanager.cpp~	2008-01-07 07:33:53.000000000 +0200
++++ tellico-1.3.6/src/cite/actionmanager.cpp	2011-01-10 21:46:34.197702109 +0200
+@@ -20,7 +20,7 @@
+ 
+ using Tellico::Cite::ActionManager;
+ 
+-ActionManager::ActionManager* ActionManager::self() {
++ActionManager* ActionManager::self() {
+   static ActionManager self;
+   return &self;
+ }

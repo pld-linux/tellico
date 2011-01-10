@@ -1,20 +1,21 @@
 #
 # Conditional build:
 %bcond_with	webcam	# build with webcam barcode recognition
-#
+%bcond_with	arts			# build with aRts support
+
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	1.3.5
-Release:	2
+Version:	1.3.6
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ca5d9db11fa1dd33dfe317ffe095435c
+Source0:	http://tellico-project.org/files/%{name}-%{version}.tar.gz
+# Source0-md5:	7e1af02c1375e4d20e199f6fb06391d0
 Patch0:		%{name}-u64.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		gcc44.patch
-URL:		http://www.periapsis.org/tellico/
+URL:		http://www.tellico-project.org/
 BuildRequires:	automake
 BuildRequires:	exempi-devel
 BuildRequires:	kdelibs-devel >= 9:3.3.1
@@ -50,6 +51,7 @@ księgozbiorów, archiwów wideo i audio.
 cp -f /usr/share/automake/config.sub admin
 %configure \
 	%{?with_webcam:--enable-webcam} \
+	--with%{!?with_arts:out}-arts \
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
