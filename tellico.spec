@@ -6,13 +6,13 @@ Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
 Version:	2.3.2
-Release:	0.1
+Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://www.periapsis.org/tellico/download/%{name}-%{version}.tar.bz2
+Source0:	http://tellico-project.org/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	3425c12055ae7ea512cd7242de73575e
 Patch1:		%{name}-desktop.patch
-URL:		http://www.periapsis.org/tellico/
+URL:		http://tellico-project.org/
 BuildRequires:	cmake
 BuildRequires:	exempi-devel
 BuildRequires:	kde4-kdegraphics-devel
