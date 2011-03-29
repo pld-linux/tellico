@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_with	webcam	# build with webcam barcode recognition
 %bcond_with	arts			# build with aRts support
+%bcond_without	kcddb	# disable KCDDB
 
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
@@ -19,7 +20,7 @@ URL:		http://www.tellico-project.org/
 BuildRequires:	automake
 BuildRequires:	exempi-devel
 BuildRequires:	kdelibs-devel >= 9:3.3.1
-BuildRequires:	kdemultimedia-devel
+%{?with_kcddb:BuildRequires:	kdemultimedia-devel}
 BuildRequires:	kdepim-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
@@ -52,6 +53,7 @@ cp -f /usr/share/automake/config.sub admin
 %configure \
 	%{?with_webcam:--enable-webcam} \
 	--with%{!?with_arts:out}-arts \
+	%{!?with_kcddb:--disable-libkcddb} \
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
