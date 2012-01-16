@@ -5,12 +5,12 @@
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	2.3.4
-Release:	1
+Version:	2.3.5
+Release:	0.1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://tellico-project.org/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	0a955754e89fc96d9745266ec97410c7
+# Source0-md5:	e6a1835d2622b79c4bfd95271bce858e
 Patch1:		%{name}-desktop.patch
 URL:		http://tellico-project.org/
 BuildRequires:	cmake
