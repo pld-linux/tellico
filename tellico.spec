@@ -5,23 +5,26 @@
 Summary:	A collection manager
 Summary(pl.UTF-8):	Zarządca zbiorów wideo, audio i książek
 Name:		tellico
-Version:	2.3.5
+Version:	2.3.8
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://tellico-project.org/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	e6a1835d2622b79c4bfd95271bce858e
+# Source0-md5:	3f85002f6f369bdcf72ac7499d39297a
 Patch1:		%{name}-desktop.patch
+Patch2:		libkcddb.patch
 URL:		http://tellico-project.org/
 BuildRequires:	cmake
 BuildRequires:	exempi-devel
-BuildRequires:	kde4-kdemultimedia-devel
 BuildRequires:	kde4-kdepimlibs-devel
+BuildRequires:	kde4-libksane-devel
+BuildRequires:	kde4-libkcddb-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	libxslt-devel >= 1.0.19
 BuildRequires:	poppler-Qt-devel
 BuildRequires:	qimageblitz-devel
+BuildRequires:	qjson-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	shared-desktop-ontologies-devel
 BuildRequires:	soprano-devel
@@ -43,9 +46,11 @@ księgozbiorów, archiwów wideo i audio.
 %prep
 %setup -q
 %patch1 -p1
+%patch2 -p1
 
 %build
 %cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
+exit
 %{__make}
 
 %install

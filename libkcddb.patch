@@ -1,0 +1,37 @@
+--- tellico-2.3.8/CMakeLists.txt~	2013-07-08 05:42:53.000000000 +0200
++++ tellico-2.3.8/CMakeLists.txt	2013-11-08 19:07:20.205665333 +0100
+@@ -55,8 +55,8 @@
+     include_directories(${KDEPIMLIBS_INCLUDE_DIRS})
+ endif(KDEPIMLIBS_FOUND)
+ 
+-macro_optional_find_package(KdeMultimedia)
+-macro_log_feature(KDEMULTIMEDIA_FOUND "kdemultimedia" "Support for CDDB searches" "http://multimedia.kde.org" FALSE "4.2.0" "")
++macro_optional_find_package(Libkcddb)
++macro_log_feature(LIBKCDDB_LIBRARIES "libkcddb" "Support for CDDB searches" "http://multimedia.kde.org" FALSE "4.2.0" "")
+ 
+ # The taglib cmake script is broken for older taglib versions, this works around the issue
+ set(TAGLIB_INCLUDES)
+@@ -169,7 +169,7 @@
+ macro_bool_to_01(LIBEXEMPI_FOUND HAVE_EXEMPI)
+ macro_bool_to_01(YAZ_FOUND HAVE_YAZ)
+ macro_bool_to_01(KSANE_FOUND HAVE_KSANE)
+-macro_bool_to_01(KDEMULTIMEDIA_FOUND HAVE_KCDDB)
++macro_bool_to_01(LIBKCDDB_LIBRARIES HAVE_KCDDB)
+ macro_bool_to_01(KDEPIMLIBS_FOUND HAVE_KABC)
+ macro_bool_to_01(KDEPIMLIBS_FOUND HAVE_KCAL)
+ macro_bool_to_01(KDEPIMLIBS_FOUND HAVE_KXMLRPC)
+--- tellico-2.3.8/src/CMakeLists.txt~	2013-07-08 05:38:42.000000000 +0200
++++ tellico-2.3.8/src/CMakeLists.txt	2013-11-08 19:31:46.275654720 +0100
+@@ -107,9 +107,9 @@
+   TARGET_LINK_LIBRARIES(tellico ${KDEPIMLIBS_KABC_LIBS} ${KDEPIMLIBS_KCAL_LIBS})
+ ENDIF( KDEPIMLIBS_FOUND )
+ 
+-IF( KDEMULTIMEDIA_FOUND )
+-  TARGET_LINK_LIBRARIES(tellico ${KCDDB_LIBRARY})
+-ENDIF( KDEMULTIMEDIA_FOUND)
++IF( LIBKCDDB_LIBRARIES )
++  TARGET_LINK_LIBRARIES(tellico ${LIBKCDDB_LIBRARIES})
++ENDIF( LIBKCDDB_LIBRARIES )
+ 
+ IF( POPPLER_QT4_FOUND )
+   TARGET_LINK_LIBRARIES(tellico ${POPPLER_QT4_LIBRARIES})
