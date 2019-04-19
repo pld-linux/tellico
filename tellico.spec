@@ -74,7 +74,9 @@ księgozbiorów, archiwów wideo i audio.
 %setup -q
 
 %build
-%cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
+%cmake . \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+	%{cmake_on_off webcam ENABLE_WEBCAM}
 %{__make}
 
 %install
